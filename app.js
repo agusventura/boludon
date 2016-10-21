@@ -4,6 +4,8 @@ var express = require("express"),
     methodOverride = require("method-override");
     mongoose = require('mongoose');
 
+var JugadorController = require('./controllers/jugadores');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(methodOverride());
@@ -16,6 +18,26 @@ router.get('/', function(req, res) {
 
 app.use(router);
 
-app.listen(80, function() {
-  console.log("Boludon WS corriendo en http://localhost:80");
+// API routes
+
+var jugador = express.Router();
+
+app.get('/jugadores',JugadorController.findAllJugadores);
+app.get('/jugador/:id',JugadorController.findJugadorById);
+app.post('/jugador',JugadorController.crearJugador);
+app.put('/jugador/:id',JugadorController.editarJugador)
+app.delete('/jugador/:id',JugadorController.eliminarJugador)
+
+app.use('/api', jugador);
+
+//mongoose.connect('mongodb://localhost:27017/jugadores', function(err, res) {
+mongoose.connect('mongodb://heroku_j8bxqbnh:roos1667@ds063546.mlab.com:63546/heroku_j8bxqbnh', function(err, res) {
+  if(err) {
+    console.log('ERROR: connecting to Database. ' + err);
+  }else{
+    console.log("Conectado a la BD.");
+  }
+  app.listen(80, function() {
+    console.log("Boludon WS corriendo en http://localhost:80");
+  });
 });
