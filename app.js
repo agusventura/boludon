@@ -31,7 +31,7 @@ app.delete('/jugador/:id',JugadorController.eliminarJugador)
 app.use('/api', jugador);
 
 //mongoose.connect('mongodb://localhost:27017/jugadores', function(err, res) {
-mongoose.connect('mongodb://heroku_j8bxqbnh:roos1667@ds063546.mlab.com:63546/heroku_j8bxqbnh', function(err, res) {
+mongoose.connect('mongodb://boludon:boludon@ds063546.mlab.com:63546/heroku_j8bxqbnh', function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }else{
