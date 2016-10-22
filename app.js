@@ -38,8 +38,8 @@ mongoose.connect('mongodb://heroku_d7wlc0r5:6veoj0kp4rafpu7lnlagfsqmc@ds015924.m
   }else{
     console.log("Conectado a la BD.");
   }
-  var mongoURL = process.env.MONGODB_URI;
-  console.log("MongoURL",mongoURL);
+  //var mongoURL = process.env.MONGODB_URI;
+  //console.log("MongoURL",mongoURL);
   app.listen(80, function() {
     console.log("Boludon WS corriendo en http://localhost:80");
   });
