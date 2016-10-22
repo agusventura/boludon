@@ -22,6 +22,7 @@ app.use(router);
 
 var jugador = express.Router();
 
+app.get('/online',JugadorController.online);
 app.get('/jugadores',JugadorController.findAllJugadores);
 app.get('/jugador/:id',JugadorController.findJugadorById);
 app.post('/jugador',JugadorController.crearJugador);
