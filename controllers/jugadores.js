@@ -1,7 +1,9 @@
 var mongoose = require('mongoose');
 //var Jugador  = mongoose.model('JugadorModel');
 var Jugador = require('../models/jugadores')
-
+exports.online = function(req,res){
+  res.status(200).jsonp("OKKKK");
+}
 exports.findAllJugadores = function(req, res) {
     Jugador.find(function(err, jugadores) {
     if(err){
