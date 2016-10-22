@@ -7,13 +7,12 @@ exports.findAllJugadores = function(req, res) {
     if(err){
        res.send(500, err.message);
     }
-    console.log('GET /jugadores')
-        res.status(200).jsonp(jugadores);
+    res.status(200).jsonp(jugadores);
     });
 };
 
 exports.findJugadorById = function(req, res) {
-    console.log("ID: ",req.params.id);
+  console.log("ID: ",req.params.id);
     Jugador.findById(req.params.id, function(err, jugador) {
     if(err){
       return res.send(500, err.message);

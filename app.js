@@ -32,7 +32,7 @@ app.use('/api', jugador);
 
 //mongoose.connect('mongodb://localhost:27017/jugadores', function(err, res) {
 
-mongoose.connect('mongodb://heroku_d7wlc0r5:6veoj0kp4rafpu7lnlagfsqmc@ds015924.mlab.com:15924/heroku_d7wlc0r5', function(err, res) {
+mongoose.connect('mongodb://heroku_d7wlc0r5:6veoj0kp4rafpu7lnlagfsqmc@ds015924.mlab.com:15924/heroku_d7wlc0r5',function(err, res) {
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }else{
