@@ -21,7 +21,9 @@ app.use(router);
 // API routes
 
 var jugador = express.Router();
-
+app.get('/', function(req,res){
+  res.send("BoludonWS!");
+});
 app.get('/online',JugadorController.online);
 app.get('/jugadores',JugadorController.findAllJugadores);
 app.get('/jugador/:id',JugadorController.findJugadorById);
