@@ -21,9 +21,7 @@ app.use(router);
 // API routes
 
 var jugador = express.Router();
-app.get('/', function(req,res){
-  res.send("BoludonWS!");
-});
+
 app.get('/online',JugadorController.online);
 app.get('/jugadores',JugadorController.findAllJugadores);
 app.get('/jugador/:id',JugadorController.findJugadorById);
@@ -43,7 +41,7 @@ mongoose.connect('mongodb://heroku_d7wlc0r5:6veoj0kp4rafpu7lnlagfsqmc@ds015924.m
   }
   var mongoURL = process.env.MONGODB_URI;
   console.log("MongoURL",mongoURL);
-  app.listen(8888, function() {
+  app.listen(80, function() {
     console.log("Boludon WS corriendo en http://localhost:80");
   });
 });
