@@ -13,7 +13,8 @@ app.use(methodOverride());
 var router = express.Router();
 
 router.get('/', function(req, res) {
-   var html = "BoludonWS!. Dominio:"+process.env.DOMAIN;
+   var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
+   var html = "BoludonWS! URL: "+fullUrl;
    res.send(html);
 });
 
@@ -47,7 +48,6 @@ mongoose.connect(process.env.MONGODB_URI || localMongoDB_URI, function(err, res)
   //si no le pongo el "process.env.PORT", cuando despliego en heroku no funciona. No le gusta el puerto fijo. Hay que usar la variable de entorno
   app.listen(process.env.PORT || 8888, function() {
     console.log("Boludon WS corriendo en http://localhost:8888");
-    console.log("Dominio:",process.env.DOMAIN);
 
   });
 });
