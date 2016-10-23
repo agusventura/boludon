@@ -48,5 +48,6 @@ mongoose.connect(process.env.MONGODB_URI || localMongoDB_URI, function(err, res)
   app.listen(process.env.PORT || 8888, function() {
     console.log("Boludon WS corriendo en http://localhost:8888");
     console.log("Dominio:",process.env.DOMAIN);
+    
   });
 });
