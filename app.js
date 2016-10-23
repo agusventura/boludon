@@ -33,7 +33,9 @@ app.use('/api', jugador);
 
 //mongoose.connect('mongodb://localhost:27017/jugadores', function(err, res) {
 
-mongoose.connect('mongodb://heroku_d7wlc0r5:6veoj0kp4rafpu7lnlagfsqmc@ds015924.mlab.com:15924/heroku_d7wlc0r5',function(err, res) {
+//mongoose.connect('mongodb://heroku_d7wlc0r5:6veoj0kp4rafpu7lnlagfsqmc@ds015924.mlab.com:15924/heroku_d7wlc0r5',function(err, res) {
+var localMongoDB_URI = "mongodb://localhost:27017/jugadores";
+mongoose.connect(process.env.MONGODB_URI || localMongoDB_URI, function(err, res){
   if(err) {
     console.log('ERROR: connecting to Database. ' + err);
   }else{
@@ -41,7 +43,10 @@ mongoose.connect('mongodb://heroku_d7wlc0r5:6veoj0kp4rafpu7lnlagfsqmc@ds015924.m
   }
   var mongoURL = process.env.MONGODB_URI;
   console.log("MongoURL",mongoURL);
+
+  //si no le pongo el "process.env.PORT", cuando despliego en heroku no funciona. No le gusta el puerto fijo. Hay que usar la variable de entorno
   app.listen(process.env.PORT || 8888, function() {
     console.log("Boludon WS corriendo en http://localhost:8888");
+    console.log("Dominio:",process.env.DOMAIN);
   });
 });
