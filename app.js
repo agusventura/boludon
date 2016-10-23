@@ -13,7 +13,7 @@ app.use(methodOverride());
 var router = express.Router();
 
 router.get('/', function(req, res) {
-   res.send("BoludonWS!");
+   res.send("BoludonWS!. Dominio:",process.env.DOMAIN);
 });
 
 app.use(router);
