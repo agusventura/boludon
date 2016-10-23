@@ -41,13 +41,12 @@ mongoose.connect(process.env.MONGODB_URI || localMongoDB_URI, function(err, res)
   }else{
     console.log("Conectado a la BD.");
   }
-  var mongoURL = process.env.MONGODB_URI;
-  console.log("MongoURL",mongoURL);
-
+  //var mongoURL = process.env.MONGODB_URI;
+  //console.log("MongoURL",mongoURL);
   //si no le pongo el "process.env.PORT", cuando despliego en heroku no funciona. No le gusta el puerto fijo. Hay que usar la variable de entorno
   app.listen(process.env.PORT || 8888, function() {
     console.log("Boludon WS corriendo en http://localhost:8888");
     console.log("Dominio:",process.env.DOMAIN);
-    
+
   });
 });
