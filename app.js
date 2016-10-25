@@ -38,6 +38,11 @@ app.get('/partidoDetalle/:id',PartidoDetalleController.findPartidoDetalleById);
 app.get('/partidoDetallePartido/:idPartido',PartidoDetalleController.findPartidosDetallesByIdPartido);
 app.post('/partidoDetalle',PartidoDetalleController.nuevoPartidoDetalle);
 
+app.put('/partidoDetalleAscenso/:idPartido,:idJugador',PartidoDetalleController.marcarAscenso)
+app.put('/partidoDetalleXAscensos/:idPartido,:idJugador,:cantAsc',PartidoDetalleController.marcarXAscensos)
+app.put('/partidoDetalleDescenso/:idPartido,:idJugador',PartidoDetalleController.marcarDescenso)
+app.put('/partidoDetalleXDescensos/:idPartido,:idJugador,:cantAsc',PartidoDetalleController.marcarXDescensos)
+
 app.use(router);
 
 //app.use('/api', jugador);
